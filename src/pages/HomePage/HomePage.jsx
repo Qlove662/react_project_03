@@ -2,13 +2,14 @@ import React, { useState } from 'react';
 import Table from 'react-bootstrap/Table';
 import Button from 'react-bootstrap/Button';
 
+
 export default function HomePage() {
 
 
 let defaultTodos = [
-    {todo_date:"2024/12/12", todo_text:"Study React", isCompleted: false},
-    {todo_date:"2024/10/12", todo_text:"Study HTML", isCompleted: true}, 
-    {todo_date:"2024/01/01", todo_text:"Data Structure", isCompleted: true}, 
+    {todo_date:"2024/12/12", todo_text:"Exercise", isCompleted: false},
+    {todo_date:"2024/10/12", todo_text:"Fold Clothes", isCompleted: true}, 
+    {todo_date:"2024/01/01", todo_text:"Wash Dishes", isCompleted: true}, 
     ]
 
     const [todos, setTodos] = useState (defaultTodos)
@@ -57,11 +58,13 @@ let defaultTodos = [
                     <td>{todo.isCompleted ? "YES" : "NO"}</td>
                     <td><Button variant="warning" onClick={(event)=>handleDelete(event, index)}>Delete</Button></td>
                 </tr>
+
                 ))
                 }
                 
             </tbody>
             </Table>
+            
         </>
   )
 }

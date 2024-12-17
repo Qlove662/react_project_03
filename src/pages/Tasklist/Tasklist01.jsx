@@ -1,9 +1,10 @@
-import React, {useState} from 'react'
-import './App.css';
+import React, {useState} from 'react';
+import Tasklist from './Tasklist.css';
+import InputGroup from 'react-bootstrap/InputGroup';
 
 export default function Tasklist01() {
   
-    const [tasks, setTasks] = useState(["Eat","Sleep","Study","Clean",]);
+    const [tasks, setTasks] = useState([]);
     const [newTask, setNewTask] = useState("");
   
     function handleInputChange(event) {
@@ -45,24 +46,30 @@ export default function Tasklist01() {
     }
   
     return (
-      <>
-        <h1>To-do List</h1>
+      <div className='Task-List'>
+        <h1>Hunny-Do List</h1>
+        <h4>Task Management Application</h4>
         <div>
-          <input type="text" value={newTask} onChange={handleInputChange} placeholder="Add a task"/>
-          <button onClick={addTask}>Add Task</button>
-          < Tasklist01 tasks={tasks} deleteTask={deleteTask} moveTaskUp={moveTaskUp} moveTaskDown={moveTaskDown}/>
-        </div>
-        <ol>
-          {tasks.map((task, index)=>
-          <li key={index}>
-            <span className='text'>{task}</span>
-            <button className="delete-button" onClick={()=>deleteTask(index)}>Delete</button>
-            <button className="move-button" onClick={()=>moveTaskUp(index)}>⬆️</button>
-            <button className="move-button" onClick={()=>moveTaskDown(index)}>⬇️</button>
-          </li>
+          <input type="text" value={newTask} onChange={handleInputChange} placeholder="Enter a task..."/>
+          <button className="add-button" onClick={addTask}>Add</button>
         
-        )}
-        </ol>
-      </>
+        </div>
+
+          <ol>
+            {tasks.map((task, index)=>
+            <li key={index}>
+              <InputGroup.Checkbox aria-label="Checkbox for following text input" />
+              <span className='text'>{task}</span>
+              <button className="delete-button" onClick={()=>deleteTask(index)}>Delete</button>
+              <button className="move-button" onClick={()=>moveTaskUp(index)}>⬆️</button>
+              <button className="move-button" onClick={()=>moveTaskDown(index)}>⬇️</button>
+              
+        
+      
+            </li>
+          
+          )}
+          </ol>
+      </div>
     )
 }
