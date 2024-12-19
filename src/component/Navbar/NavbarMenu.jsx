@@ -12,7 +12,6 @@ export default function NavbarMenu() {
               <Nav className="me-auto">
                   <Nav.Link href="/home">Home</Nav.Link>
                   <Nav.Link href="/contactus">ContactUs</Nav.Link>
-                  <Nav.Link href="/tasklist">Task List</Nav.Link>
               </Nav>
           </Container>
     </Navbar></>

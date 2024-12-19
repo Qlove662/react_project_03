@@ -1,70 +1,77 @@
-import React, { useState } from 'react';
-import Table from 'react-bootstrap/Table';
-import Button from 'react-bootstrap/Button';
+import React, {useState} from 'react';
+import InputGroup from 'react-bootstrap/InputGroup';
+
+
 
 
 export default function HomePage() {
-
-
-let defaultTodos = [
-    {todo_date:"2024/12/12", todo_text:"Exercise", isCompleted: false},
-    {todo_date:"2024/10/12", todo_text:"Fold Clothes", isCompleted: true}, 
-    {todo_date:"2024/01/01", todo_text:"Wash Dishes", isCompleted: true}, 
-    ]
-
-    const [todos, setTodos] = useState (defaultTodos)
-    const [initalTodos, setInitalTodos] = useState (defaultTodos)
-
-
-    let HandleAllTodos = () => {
-        setTodos (initalTodos)
+  
+    const [tasks, setTasks] = useState([]);
+    const [newTask, setNewTask] = useState("");
+  
+    function handleInputChange(event) {
+      setNewTask(event.target.value);
     }
+  
+    function addTask(){
 
-    let handleDelete = (event, rowindex) => {
-        console.log(event)
-        console.log(rowindex)
-        let newTodos = todos.filter ((todo, TodoIndex)=> {
-            if (rowindex!==TodoIndex)
-            return todo
-        })
-        setTodos (newTodos)
+            if(newTask.trim() !== ""){
+            setTasks(t => [...t, newTask]);
+            setNewTask("");
+        }
     }
+  
+    function deleteTask(index) {
+        const updatetasks = tasks.filter((_, i) => i !== index);
+        setTasks(updatetasks);
 
-  return (
-        <>
-            <h1>Home Page</h1> 
-            <Button variant="success" onClick={()=>HandleAllTodos()}>All Todos</Button>
-            <Button variant="success">Completed Todos</Button>
-            <Button variant="success">Incomplete Todos</Button>
+    }
+  
+    function moveTaskUp(index) {
+        if(index > 0){
+            const updateTasks = [...tasks];
+            [updateTasks[index], updateTasks[index - 1]] =
+            [updateTasks[index - 1], updateTasks[index]];
+            setTasks(updateTasks);
+        }
+  
+    }
+  
+    function moveTaskDown(index) {
+        if(index < tasks.length - 1){
+            const updateTasks = [...tasks];
+            [updateTasks[index], updateTasks[index + 1]] =
+            [updateTasks[index + 1], updateTasks[index]];
+            setTasks(updateTasks);
+        }
+    
+    }
+  
+    return (
+      
+      <div className='Task-List'>
+        <h1 style={{ color: 'white' }}>Hunny-Do List</h1>
+        <h4 style={{ color: 'white' }}>Task Management Application</h4>
+        <div>
+          <input type="text" value={newTask} onChange={handleInputChange} placeholder="Enter a task..."/>
+          <button className="add-button" onClick={addTask}>Add</button>
+        </div>
 
-            <Table striped bordered hover>
-            <thead>
-                <tr>
-                    <th>No.</th>  
-                    <th>Todo Task</th>
-                    <th>Task Date</th>
-                    <th>IsCompleted</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
-            <tbody>
-                {
-                    todos.map ((todo, index)=>(
-
-                <tr>
-                    <td>{index+1}</td>  
-                    <td>{todo.todo_text}</td>
-                    <td>{todo.todo_date}</td>
-                    <td>{todo.isCompleted ? "YES" : "NO"}</td>
-                    <td><Button variant="warning" onClick={(event)=>handleDelete(event, index)}>Delete</Button></td>
-                </tr>
-
-                ))
-                }
-                
-            </tbody>
-            </Table>
-            
-        </>
-  )
+          <ol>
+            {tasks.map((task,index)=>
+            <li key={index}>
+              <InputGroup.Checkbox aria-label="Checkbox for following text input" />
+              <span className='text'>{task}</span>
+              <button className="delete-button" onClick={()=>deleteTask(index)}>Delete</button>
+              <button className="move-button" onClick={()=>moveTaskUp(index)}>⬆️</button>
+              <button className="move-button" onClick={()=>moveTaskDown(index)}>⬇️</button>
+              
+        
+      
+            </li>
+          
+          )}
+          </ol>
+      </div>
+    )
 }

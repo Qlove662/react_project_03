@@ -22,7 +22,7 @@ export default function ContactUsPage() {
 
   return (
     <>
-    <h1>Contact Us</h1> 
+    <h1 style={{ color: 'white'}}>Contact Us</h1> 
     <Form noValidate validated={validated} onSubmit={handleSubmit}>
       <Row className="mb-3">
         <Form.Group as={Col} md="4" controlId="validationCustom01">
