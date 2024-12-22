@@ -35,7 +35,7 @@ Website builds on React, CSS, and JavaScript. This aaplication will help with th
 
 
 ## Wireframe:
-![Wireframe](<src\images\Home_tasklist.png>)
+![Wireframe](<src/images/Home_tasklist.png>)
 
 
 
@@ -43,7 +43,7 @@ Website builds on React, CSS, and JavaScript. This aaplication will help with th
 ![Images](<src/images/clipboard.jpeg>)
 
 ## Website:
-![Website](<src\images\Hunny_DoList_01.png>)
-![Website](<src\images\Hunny_DoList_02.png>)
-![Website](<src\images\Hunny_DoList_03.png>)
+![Website](<src/images/Hunny_DoList_01.png>)
+![Website](<src/images/Hunny_DoList_02.png>)
+![Website](<src/images/Hunny_DoList_03.png>)
 ![Website](<src/images/Hunny_DoList_04.png>)
