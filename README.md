@@ -35,15 +35,15 @@ Website builds on React, CSS, and JavaScript. This aaplication will help with th
 
 
 ## Wireframe:
-![Wireframe](<react_project_03\src\images\Home_tasklist.png>)
+![Wireframe](<src\images\Home_tasklist.png>)
 
 
 
 ## Images:
-![Images](<react_project_03\src\images\clipboard.jpeg>)
+![Images](<src/images/clipboard.jpeg>)
 
 ## Website:
-![Website](<react_project_03\src\images\Hunny_DoList_01.png>)
-![Website](<react_project_03\src\images\Hunny_DoList_02.png>)
-![Website](<react_project_03\src\images\Hunny_DoList_03.png>)
-![Website](<react_project_03\src\images\Hunny_DoList_04.png>)
+![Website](<src\images\Hunny_DoList_01.png>)
+![Website](<src\images\Hunny_DoList_02.png>)
+![Website](<src\images\Hunny_DoList_03.png>)
+![Website](<src/images/Hunny_DoList_04.png>)
